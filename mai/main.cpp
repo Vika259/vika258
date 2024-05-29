@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 #include "book_subscription.h"
 #include "file_reader.h"
 #include "constants.h"
@@ -38,6 +39,10 @@ int main()
         {
             delete subscriptions[i];
         }
+        cout << "Laboratory work #8. GIT\n";
+    cout << "Variant #0. Library Subscription\n";
+    cout << "Author: Sergey Yermochenko\n";
+    cout << "Group: XX\n";
     }
     catch (const char* error)
     {
