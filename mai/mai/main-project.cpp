@@ -2,8 +2,8 @@
 using namespace std;
 int main() {
 	setlocale(LC_ALL, "Russian");
-	cout << "Ëàáîðàòîðíàÿ ðàáîòà #9. Git" << endl;
-	cout << "Àâòîð: Âèêòîðèÿ Áîðîâêî" << endl;
-	cout << "Ãðóïïà: 23ÈÑèÒ1ä" << endl;
+	cout << "Ã‹Ã Ã¡Ã®Ã°Ã Ã²Ã®Ã°Ã­Ã Ã¿ Ã°Ã Ã¡Ã®Ã²Ã  #9. Git" << endl;
+	cout << "Ã€Ã¢Ã²Ã®Ã°: Ã‚Ã¨ÃªÃ²Ã®Ã°Ã¨Ã¿ ÃÃ®Ã°Ã®Ã¢ÃªÃ®" << endl;
+	cout << "ÃƒÃ°Ã³Ã¯Ã¯Ã : 23ÃˆÃ‘Ã¨Ã’1Ã¤" << endl;
 	return 0;
 }
