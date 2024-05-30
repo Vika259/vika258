@@ -15,6 +15,7 @@ int main() {
 #include <algorithm>
 #include <sstream>
 #include <Windows.h>
+
 using namespace std;
 
 struct Precipitation {
@@ -24,20 +25,11 @@ struct Precipitation {
     char characteristic[50];
     int duration() const {
         istringstream is(month);
-        int m, d;
-        if (!(is >> m>> d) || m < 0 || m > 12|| d < 0) {
-            if ((d < 5 && d % 2 == 0 && d>30)) {
-                throw invalid_argument("Invalid start time format");
-            }
-            if ((d < 5 && d % 2 != 0 && d>31)) {
-                throw invalid_argument("Invalid start time format");
-            }
-            if (d = 5 && d > 28) {
-                throw invalid_argument("Invalid start time format");
-            }
+        int m;
+        if (!(is >> m) || m < 0  || m >= 12) {
             throw invalid_argument("Invalid start time format");
         }
-       /*is.clear();
+        is.clear();
         istringstream iss(day);
         int d;
         if (!(iss >> d) || d < 0) {
@@ -50,15 +42,13 @@ struct Precipitation {
             if (d = 5 && d > 28) {
                 throw invalid_argument("Invalid start time format");
             }
-
-        };*/ 
-        is.clear();
-
+        };
+        iss.clear();
     }
 };
 
 bool isRain(const char* str) {
-    return strstr(str, "Дождь") != nullptr;
+    return strstr(str, "дождь") != nullptr;
 }
 
 bool isLessThan15(const Precipitation& p) {
@@ -101,8 +91,9 @@ ostream& operator<<(ostream& os, const Precipitation& talk) {
 void Shaker_sort_1(vector<Precipitation>& talks) {
     int left = 0;
     int right = talks.size() - 1;
-    bool isSorted = true;
+    bool isSorted = false;
     while (!isSorted) {
+        isSorted = true;
         for (int i = left; i < right; ++i) {
             if (compareByAmount(talks[i + 1], talks[i])) {
                 std::swap(talks[i], talks[i + 1]);
@@ -178,7 +169,7 @@ void vibor(vector<Precipitation>& talks) {
         Quick_sort_2(talks);
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, "RU");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     string f = "data.txt";
@@ -210,7 +201,7 @@ int main() {
     if (file.is_open()) {
 
         vibor(talks);
-       
+
         for (const Precipitation& talk : talks) {
             file << talk;
         }
